@@ -1,0 +1,44 @@
+<nav class="p-4 w-full">
+  <ul class="menu bg-base-200 sm:menu-horizontal rounded-box">
+    <li>
+      <a class="btn" [routerLink]="['by-capital']" [routerLinkActive]="'btn-primary'">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+        Por capital
+      </a>
+    </li>
+    <li>
+      <a class="btn" [routerLink]="['by-country']" [routerLinkActive]="'btn-primary'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path fill="currentColor"
+            d="m10 13.8l-6.325 2.525q-.6.25-1.137-.112T2 15.2v-.55q0-.3.138-.575t.387-.45L10 8.4V4q0-.825.588-1.412T12 2t1.413.588T14 4v4.4l7.475 5.225q.25.175.388.45t.137.575v.55q0 .65-.537 1.013t-1.138.112L14 13.8v3.6l2.575 1.8q.2.15.313.363t.112.462v.6q0 .5-.413.813t-.912.162L12 20.5l-3.675 1.1q-.5.15-.913-.162T7 20.625v-.6q0-.25.113-.462t.312-.363L10 17.4z" />
+        </svg>
+        Por país
+      </a>
+    </li>
+    <li>
+      <a class="btn" [routerLink]="['by-region']" [routerLinkActive]="'btn-primary'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="2" />
+            <path stroke-linecap="round" d="M12 10c5 0 4.6 12-3 12" opacity="0.5" />
+            <path stroke-linecap="round" d="M12.312 14c-5 0-4.6-12 3-12" opacity="0.5" />
+            <path stroke-linecap="round" d="M10 12.312c0-5 12-4.6 12 3" opacity="0.5" />
+            <path stroke-linecap="round" d="M14 12c0 5-12 4.6-12-3" opacity="0.5" />
+          </g>
+        </svg>
+        Por región
+      </a>
+    </li>
+  </ul>
+</nav>
