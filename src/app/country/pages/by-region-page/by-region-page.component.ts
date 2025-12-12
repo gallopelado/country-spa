@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { CountryList } from "../../components/country-list/country-list.component";
-import { SearchInputComponent } from "../../components/search-input/search-input.component";
 
 @Component({
   selector: 'app-by-capital-page',
-  imports: [CountryList, SearchInputComponent],
-  templateUrl: './by-capital-page.component.html'
+  imports: [CountryList],
+  templateUrl: './by-region-page.component.html'
 })
-export class ByCapitalPageComponent {
+export class ByRegionPageComponent {
 
   onSearch(value: string): void {
     console.log('Searching for capital:', value);
