@@ -2,12 +2,12 @@
  <!-- Este value esta siendo emitido en search-input.component
   se conecta con el onSearch del ByCapitalPageComponent -->
 <country-search-input placeholder="Buscar por capital"
-  (value)="onSearch($event)"
+  (value)="query.set($event)"
 />
 
 <!-- country-list -->
-@if (!isError()) {
-  <country-list [countries]="countries()" />
-} @else {
-  <h3>{{ isError() }}</h3>
+@if ( countryResource.error() ) {
+  <h3>{{ countryResource.error() }}</h3>
+} @if ( countryResource.hasValue() ) {
+  <country-list [countries]="countryResource.value()!" />
 }
