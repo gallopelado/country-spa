@@ -6,4 +6,8 @@
 />
 
 <!-- country-list -->
-<country-list [countries]="countries()" />
+@if (!isError()) {
+  <country-list [countries]="countries()" />
+} @else {
+  <h3>{{ isError() }}</h3>
+}
