@@ -30,7 +30,16 @@
           </td>
           <td>{{ item.name }}</td>
           <td>{{ item.capital }}</td>
-          <td>{{ item.population }}</td>
+          <td>
+            <span
+              class="badge badge-outline"
+              [class.badge-danger]="item.population > 200000000"
+              [class.badge-warning]="item.population >= 50000000 && item.population <= 200000000"
+              [class.badge-success]="item.population < 50000000"
+            >
+              {{ item.population | number }}
+            </span>
+          </td>
           <td>
             <a class="link-primary transition duration-300 ease-in-out hover:scale-110 inline-block">Mas información</a>
           </td>
