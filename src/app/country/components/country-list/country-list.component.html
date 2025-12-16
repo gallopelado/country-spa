@@ -13,6 +13,29 @@
       </tr>
     </thead>
     <tbody>
+      @for (item of countries(); track $index) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td><img
+              [src]="item.flags.png"
+              [alt]="item.name.common"
+              style="width: 15px; height: 10px; object-fit: cover;"
+            /></td>
+          <td>
+            <img
+              [src]="item.flags.png"
+              [alt]="item.name.common"
+              style="width: 30px; height: 20px; object-fit: cover;"
+            />
+          </td>
+          <td>{{ item.name.common }}</td>
+          <td>{{ item.capital[0] }}</td>
+          <td>{{ item.population }}</td>
+          <td>
+            <a class="link-primary transition duration-300 ease-in-out hover:scale-110 inline-block">Mas información</a>
+          </td>
+        </tr>
+      }
     </tbody>
   </table>
 
