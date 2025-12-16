@@ -31,14 +31,32 @@
           <td>{{ item.name }}</td>
           <td>{{ item.capital }}</td>
           <td>
-            <span
-              class="badge badge-outline"
-              [class.badge-danger]="item.population > 200000000"
-              [class.badge-warning]="item.population >= 50000000 && item.population <= 200000000"
-              [class.badge-success]="item.population < 50000000"
-            >
-              {{ item.population | number }}
-            </span>
+            <div class="stats shadow">
+              <div class="stat">
+                <div
+                  class="stat-value"
+                  [class.text-red-400]="item.population > 200000000"
+                  [class.text-warning]="item.population >= 50000000 && item.population <= 200000000"
+                  [class.text-success]="item.population < 50000000"
+                >
+                  {{ item.population | number }}
+                </div>
+
+                @if (item.population > 200000000) {
+                  <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+
+                    <div class="stat-desc text-red-500">¡Población muy alta!</div>
+                  </span>
+                } @else if (item.population >= 50000000 && item.population <= 200000000) {
+                  <div class="stat-desc text-yellow-500">Población moderada</div>
+                } @else {
+                  <div class="stat-desc text-green-500">Población baja</div>
+                }
+
+              </div>
+            </div>
           </td>
           <td>
             <a class="link-primary transition duration-300 ease-in-out hover:scale-110 inline-block">Mas información</a>
