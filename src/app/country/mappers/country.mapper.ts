@@ -9,7 +9,7 @@ export class CountryMapper {
       cca2: item.cca2,
       flag: item.flags.png,
       flagSvg: item.flags.svg,
-      name: item.name.common,
+      name: item.translations?.['spa']?.official || item.name.common,
       capital: item.capital ? item.capital[0] : 'No Capital',
       population: item.population,
     }
