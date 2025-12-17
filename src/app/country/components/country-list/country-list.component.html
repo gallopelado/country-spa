@@ -41,7 +41,9 @@
             </span>
           </td>
           <td>
-            <a class="link-primary transition duration-300 ease-in-out hover:scale-110 inline-block">Mas información</a>
+            <a
+              [routerLink]="['/country/by', item.cca2]"
+              class="link-primary transition duration-300 ease-in-out hover:scale-110 inline-block">Mas información</a>
           </td>
         </tr>
       }

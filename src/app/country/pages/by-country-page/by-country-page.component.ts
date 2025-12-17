@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, resource, signal } from '@angular/core';
 import { SearchInputComponent } from "../../components/search-input/search-input.component";
 import { CountryList } from "../../components/country-list/country-list.component";
+import { CountryService } from '../../services/country.service';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-by-country-page',
@@ -9,8 +11,22 @@ import { CountryList } from "../../components/country-list/country-list.componen
 })
 export class ByCountryPageComponent {
 
-  onSearch(value: string): void {
-    console.log('Searching for capital:', value);
-  }
+  countryService = inject(CountryService);
+  query = signal('');
+
+  countryResource = resource({
+
+    request: () => ({ query: this.query() }),
+    loader: async ({ request }) => {
+
+      if ( !request.query ) return [];
+
+      return await firstValueFrom(
+        this.countryService.searchByCountry( request.query )
+      );
+
+    },
+
+  });
 
 }

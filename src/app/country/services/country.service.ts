@@ -27,4 +27,21 @@ export class CountryService {
       )
 
   }
+
+  searchByCountry( q: string ): Observable<Country[]> {
+    const query = q.trim().toLowerCase();
+
+    return this.http.get<RESTCountry[]>(`${API_URL}/name/${ query }`)
+      .pipe(
+        map( restCountryArr => CountryMapper.mapRestCountriesToCountries(restCountryArr) ),
+        catchError( err => {
+          return throwError(
+            () => new Error(`No se pudo encontrar el país según el término ${ query }`)
+          );
+        }
+        ),
+      )
+
+  }
+
 }
