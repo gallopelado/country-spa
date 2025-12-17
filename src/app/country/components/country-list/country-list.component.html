@@ -47,6 +47,40 @@
           </td>
         </tr>
       }
+
+      <!--  -->
+      @if ( errorMessage() ) {
+        <tr>
+          <td colspan="7">
+            <div class="alert alert-error">
+              <span>{{ errorMessage() }}</span>
+            </div>
+          </td>
+        </tr>
+      }
+
+      <!--  -->
+      @if ( countries().length === 0 && !isLoading() ) {
+        <tr>
+          <td colspan="7">
+            <div class="alert alert-info">
+              <span>No hay países que mostrar</span>
+            </div>
+          </td>
+        </tr>
+      }
+
+      <!--  -->
+      @if ( isLoading() ) {
+        <tr>
+          <td colspan="7">
+            <div class="flex justify-center items-center">
+              <span class="loading loading-spinner loading-lg"></span>
+            </div>
+          </td>
+        </tr>
+      }
+
     </tbody>
   </table>
 

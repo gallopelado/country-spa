@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { Country } from '../../interfaces/country.interface';
 import { DecimalPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -10,4 +10,9 @@ import { RouterLink } from '@angular/router';
 })
 export class CountryList {
   countries = input.required<Country[]>();
+
+  errorMessage = input<string|unknown|null>();
+  isLoading = input<boolean>(false);
+  isEmpty = input<boolean>(false);
+
 }
