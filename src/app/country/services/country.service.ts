@@ -45,4 +45,20 @@ export class CountryService {
 
   }
 
+  searchCountryByAplhaCode( code: string ): Observable<Country|undefined> {
+
+    return this.http.get<RESTCountry[]>(`${API_URL}/alpha/${ code }`)
+      .pipe(
+        map( restCountryArr => CountryMapper.mapRestCountriesToCountries(restCountryArr) ),
+        map( countries => countries.at(0) ),
+        catchError( err => {
+          return throwError(
+            () => new Error(`No se pudo encontrar el país según el término ${ code }`)
+          );
+        }
+        ),
+      )
+
+  }
+
 }
