@@ -1,6 +1,35 @@
-<section class="mx-10">
-  <h1 class="text-3xl">{{ countryInformation().name }}</h1>
-  <h2 class="text-xl font-thin">
-    N° habitantes: {{ countryInformation().population | number }}
-  </h2>
-</section>
+<div class="card lg:card-side bg-base-100 shadow-xl">
+  <figure>
+    <img
+      src="{{ countryInformation().flag }}"
+      alt="{{ countryInformation().name }}" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">{{ countryInformation().name }}</h2>
+    <p>Capital: {{ countryInformation().capital }}</p>
+    <p>Tiene una población de
+      <span class="tracking-wide text-gray-500 hover:text-white">
+        {{ countryInformation().population | number }}
+      </span> habitantes.
+    </p>
+
+  </div>
+</div>
+
+<div class="card lg:card-side bg-base-200 shadow-xl mt-2">
+  <div class="card-body">
+    <h2 class="card-title">Algunas imágenes de {{ countryInformation().name }}</h2>
+
+    <div class="carousel rounded-box carousel-center h-64">
+      @for (im of imageCollection(); track im) {
+        <div class="carousel-item">
+          <img
+            class="h-full"
+            src="{{ im.urls.regular || im.urls.small || im.urls.thumb }}"
+            alt="{{ im.alt_description }}" />
+        </div>
+      }
+    </div>
+
+  </div>
+</div>

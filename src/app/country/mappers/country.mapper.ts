@@ -10,6 +10,7 @@ export class CountryMapper {
       flag: item.flags.png,
       flagSvg: item.flags.svg,
       name: item.translations?.['spa']?.official || item.name.common,
+      common: item.name.common,
       capital: item.capital ? item.capital[0] : 'No Capital',
       population: item.population,
     }

@@ -3,5 +3,8 @@
 }
 
 @if ( countryResource.hasValue() ) {
-  <country-information-page [countryInformation]="countryResource.value()!" />
+  <country-information-page
+    [countryInformation]="countryResource.value()!"
+    [imageCollection]="unSplashResource.value()!"
+  />
 }
